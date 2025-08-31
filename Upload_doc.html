@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Upload - Academicoapp</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="css/upload.css">
+</head>
+<body>
+  <div class="floating-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+
+  <header class="py-3">
+    <div class="container-fluid">
+      <div class="header-card rounded-3 p-3">
+        <div class="d-flex justify-content-between align-items-center">
+          <button onclick="goBack()" class="btn btn-back">
+            <span class="material-icons">arrow_back</span>
+            Voltar
+          </button>
+          <h5 class="mb-0 header-title">Enviar Documento</h5>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container pt-4" style="max-width: 700px;">
+    <div class="main-card">
+      <div class="card-body p-4">
+        <form id="uploadForm">
+          <div class="mb-4">
+            <label class="form-label">
+              <span class="material-icons">title</span>
+              Título do Documento
+            </label>
+            <input type="text" class="form-control" id="docTitle" placeholder="Digite o título do documento..." required>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label">
+              <span class="material-icons">description</span>
+              Descrição
+            </label>
+            <textarea class="form-control" rows="3" id="docDesc" placeholder="Descreva brevemente o conteúdo..."></textarea>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label">
+              <span class="material-icons">cloud_upload</span>
+              Arquivo (PDF, DOC, PPT)
+            </label>
+            <div class="file-upload-area" onclick="triggerFileInput()">
+              <input type="file" class="form-control" id="docFile" accept=".pdf,.doc,.docx,.ppt,.pptx" style="display: none;" required>
+              <span class="material-icons upload-icon">cloud_upload</span>
+              <p class="mb-0"><strong>Clique aqui</strong> ou arraste seu arquivo</p>
+              <small class="text-muted">Formatos aceitos: PDF, DOC, DOCX, PPT, PPTX</small>
+            </div>
+            <div class="file-info" id="fileInfo">
+              <span class="material-icons text-success me-2">check_circle</span>
+              <span id="fileName"></span>
+              <button type="button" class="btn btn-sm btn-outline-danger ms-2" onclick="removeFile()">
+                <span class="material-icons" style="font-size: 16px;">delete</span>
+              </button>
+            </div>
+            <div class="progress-bar-custom" id="progressBar">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+          </div>
+
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label class="form-label">
+                <span class="material-icons">category</span>
+                Categoria
+              </label>
+              <select class="form-select" id="docCategory" required>
+                <option value="">Selecione uma categoria</option>
+                <option value="ebook">📚 E-book</option>
+                <option value="artigo">📄 Artigo</option>
+                <option value="apostila">📋 Apostila</option>
+                <option value="tcc">🎓 TCC</option>
+                <option value="video">🎥 Vídeo</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">
+                <span class="material-icons">school</span>
+                Nível
+              </label>
+              <select class="form-select" id="docLevel">
+                <option value="fundamental">📝 Ensino Fundamental</option>
+                <option value="medio">🎒 Ensino Médio</option>
+                <option value="superior">🎓 Ensino Superior</option>
+                <option value="pos">👨‍🎓 Pós-Graduação</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-check mb-4">
+            <input class="form-check-input" type="checkbox" id="allowDownload">
+            <label class="form-check-label" for="allowDownload">
+              <span class="material-icons me-1" style="font-size: 18px; vertical-align: middle;">download</span>
+              Permitir download por outros usuários
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-upload w-100">
+            <span class="material-icons me-2">send</span>
+            Enviar Documento
+          </button>
+        </form>
+
+        <div class="success-message" id="successMessage">
+          <span class="material-icons mb-2" style="font-size: 48px;">check_circle</span>
+          <h5>Documento enviado com sucesso!</h5>
+          <p class="mb-0">Redirecionando para o repositório...</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/upload.js"></script>
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ranking de Instituições Acadêmicas — Academicoapp</title>
+  <meta name="description" content="Ranking completo de instituições acadêmicas e centros profissionais em Angola">
+  
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <!-- Animate.css -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/ranking.css">
+</head>
+<body>
+  <!-- Formas flutuantes decorativas -->
+  <div class="floating-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="img/Academicoapp-logo3.png" alt="Logo AcademicoApp" height="30" loading="lazy">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="Index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#services">Serviços</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" id="rankingMenu" role="button" data-bs-toggle="dropdown">Ranking</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="ranking.html">Ranking Institucional</a></li>
+              <li><a class="dropdown-item" href="ranking_1.html">Ranking Academico</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="recursosMenu" role="button" data-bs-toggle="dropdown">Recursos</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="Dashboard.html#community">Publicações</a></li>
+              <li><a class="dropdown-item" href="repository.html">Repositório acadêmico</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contactos</a></li>
+          <li class="nav-item ms-lg-2"><a class="btn btn-orange" href="login.html">Entrar</a></li>
+          <li class="nav-item ms-lg-3">
+            <button id="themeToggle" class="btn btn-outline-orange" type="button" title="Alternar tema">
+              <i class="fa-solid fa-moon"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-5" style="margin-top: 72px;">
+    <!-- Header Section -->
+    <div class="ranking-header">
+      <div class="container text-center">
+        <h1 class="display-4 fw-bold mb-3 animate__animated animate__fadeInDown">
+          <i class="fas fa-trophy me-3"></i>Ranking Institucional
+        </h1>
+        <p class="lead mb-4 animate__animated animate__fadeInUp">
+          Avaliação completa das melhores instituições acadêmicas e centros profissionais de Angola
+        </p>
+        
+        <div class="ranking-badges animate__animated animate__fadeInUp animate__delay-1s">
+          <span class="ranking-badge">
+            <i class="fas fa-university"></i>
+            <span class="badge-number">67</span>
+            <span class="badge-label">Instituições</span>
+          </span>
+          <span class="ranking-badge">
+            <i class="fas fa-chart-line"></i>
+            <span class="badge-number">15</span>
+            <span class="badge-label">Critérios</span>
+          </span>
+          <span class="ranking-badge">
+            <i class="fas fa-calendar"></i>
+            <span class="badge-number">Jan</span>
+            <span class="badge-label">Atualizado</span>
+          </span>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="mt-4 animate__animated animate__fadeInUp animate__delay-2s">
+          <a class="btn btn-cta" href="avalie_2.html">
+            <i class="fa-solid fa-pen-clip me-2"></i>
+            Avalie a sua instituição
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Statistics Grid -->
+    <section class="py-5">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card animate__animated animate__fadeInUp">
+            <div class="stat-icon">
+              <i class="fas fa-university"></i>
+            </div>
+            <div class="stat-number" data-count="67">0</div>
+            <h5 class="stat-title">Instituições Avaliadas</h5>
+            <p class="stat-description">Universidades e centros profissionais</p>
+          </div>
+          
+          <div class="stat-card animate__animated animate__fadeInUp animate__delay-1s">
+            <div class="stat-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="stat-number" data-count="245">0</div>
+            <h5 class="stat-title">Estudantes (K)</h5>
+            <p class="stat-description">Total de estudantes matriculados</p>
+          </div>
+          
+          <div class="stat-card animate__animated animate__fadeInUp animate__delay-2s">
+            <div class="stat-icon">
+              <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+            <div class="stat-number" data-count="12">0</div>
+            <h5 class="stat-title">Docentes (K)</h5>
+            <p class="stat-description">Professores e investigadores</p>
+          </div>
+          
+          <div class="stat-card animate__animated animate__fadeInUp animate__delay-3s">
+            <div class="stat-icon">
+              <i class="fas fa-medal"></i>
+            </div>
+            <div class="stat-number" data-count="8.7" data-decimal="true">0</div>
+            <h5 class="stat-title">Nota Média</h5>
+            <p class="stat-description">Pontuação geral do sistema</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filters and Ranking -->
+    <section class="ranking-section">
+      <div class="container">
+        <!-- Filters Card -->
+        <div class="filter-card">
+          <div class="row align-items-center">
+            <div class="col-lg-6">
+              <h5 class="filter-title">
+                <i class="fas fa-filter"></i>
+                Filtros de Ranking
+              </h5>
+              <div class="category-filter">
+                <button class="category-btn active" data-filter="all">
+                  <i class="fas fa-globe"></i>
+                  Todas
+                </button>
+                <button class="category-btn" data-filter="universidade">
+                  <i class="fas fa-university"></i>
+                  Universidades
+                </button>
+                <button class="category-btn" data-filter="instituto">
+                  <i class="fas fa-building"></i>
+                  Institutos
+                </button>
+                <button class="category-btn" data-filter="centro">
+                  <i class="fas fa-tools"></i>
+                  Centros Profissionais
+                </button>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">
+                    <i class="fas fa-map-marker-alt me-2"></i>
+                    Província
+                  </label>
+                  <select class="form-select custom-select" id="provinciaFilter">
+                    <option value="">Todas as províncias</option>
+                    <option value="luanda">Luanda</option>
+                    <option value="benguela">Benguela</option>
+                    <option value="huila">Huíla</option>
+                    <option value="bie">Bié</option>
+                  </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">
+                    <i class="fas fa-sort me-2"></i>
+                    Ordenar por
+                  </label>
+                  <select class="form-select custom-select" id="sortBy">
+                    <option value="score">Pontuação Geral</option>
+                    <option value="research">Investigação</option>
+                    <option value="teaching">Qualidade de Ensino</option>
+                    <option value="reputation">Reputação</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ranking Table -->
+        <div class="ranking-table animate__animated animate__fadeInUp">
+          <div class="table-header">
+            <h4><i class="fas fa-list-ol me-2"></i>Ranking 2025</h4>
+            <div class="table-controls">
+              <button class="btn btn-table-control" id="exportBtn" title="Exportar dados">
+                <i class="fas fa-download"></i>
+              </button>
+              <button class="btn btn-table-control" id="refreshBtn" title="Atualizar ranking">
+                <i class="fas fa-sync-alt"></i>
+              </button>
+            </div>
+          </div>
+          
+          <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+              <thead>
+                <tr>
+                  <th width="80">Posição</th>
+                  <th>Instituição</th>
+                  <th width="120">Tipo</th>
+                  <th width="100">Província</th>
+                  <th width="120">Pontuação</th>
+                  <th width="150">Tendência</th>
+                  <th width="100">Ações</th>
+                </tr>
+              </thead>
+              <tbody id="rankingTableBody">
+                <!-- Rankings will be populated by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="table-footer" id="tableFooter">
+            <div class="table-info">
+              <span id="tableInfo">Mostrando 1-5 de 67 instituições</span>
+            </div>
+            <div class="table-pagination">
+              <button class="btn btn-pagination" id="prevPage" disabled>
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <span class="pagination-info">Página <span id="currentPage">1</span> de <span id="totalPages">14</span></span>
+              <button class="btn btn-pagination" id="nextPage">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Methodology Section -->
+        <div class="methodology-section">
+          <div class="methodology-header">
+            <h4><i class="fas fa-cogs me-2"></i>Metodologia de Avaliação</h4>
+            <p class="methodology-intro">
+              Nossa avaliação baseia-se em 15 critérios fundamentais agrupados em 5 dimensões principais:
+            </p>
+          </div>
+          
+          <div class="methodology-grid">
+            <div class="methodology-item">
+              <div class="methodology-icon">
+                <i class="fas fa-book-open"></i>
+              </div>
+              <h6>Qualidade de Ensino <span class="weight">(30%)</span></h6>
+              <ul>
+                <li>Ratio estudante/professor</li>
+                <li>Qualificações do corpo docente</li>
+                <li>Taxa de conclusão de cursos</li>
+                <li>Satisfação dos estudantes</li>
+              </ul>
+            </div>
+            
+            <div class="methodology-item">
+              <div class="methodology-icon">
+                <i class="fas fa-flask"></i>
+              </div>
+              <h6>Investigação <span class="weight">(25%)</span></h6>
+              <ul>
+                <li>Publicações científicas</li>
+                <li>Projetos de investigação</li>
+                <li>Parcerias internacionais</li>
+                <li>Inovação e patentes</li>
+              </ul>
+            </div>
+            
+            <div class="methodology-item">
+              <div class="methodology-icon">
+                <i class="fas fa-briefcase"></i>
+              </div>
+              <h6>Empregabilidade <span class="weight">(20%)</span></h6>
+              <ul>
+                <li>Taxa de emprego dos graduados</li>
+                <li>Parcerias com empresas</li>
+                <li>Programas de estágio</li>
+                <li>Salários dos graduados</li>
+              </ul>
+            </div>
+            
+            <div class="methodology-item">
+              <div class="methodology-icon">
+                <i class="fas fa-building"></i>
+              </div>
+              <h6>Infraestrutura <span class="weight">(15%)</span></h6>
+              <ul>
+                <li>Instalações modernas</li>
+                <li>Recursos tecnológicos</li>
+                <li>Bibliotecas e laboratórios</li>
+                <li>Campus e segurança</li>
+              </ul>
+            </div>
+            
+            <div class="methodology-item">
+              <div class="methodology-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <h6>Reputação <span class="weight">(10%)</span></h6>
+              <ul>
+                <li>Reconhecimento nacional</li>
+                <li>Projetos de extensão</li>
+                <li>Diversidade e inclusão</li>
+                <li>Responsabilidade social</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Institution Details Modal -->
+  <div class="modal fade" id="institutionModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitle">
+            <i class="fas fa-university me-2"></i>
+            Detalhes da Instituição
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body" id="modalBody">
+          <!-- Content will be populated by JavaScript -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Fechar
+          </button>
+          <button type="button" class="btn btn-orange" id="visitWebsiteBtn">
+            <i class="fas fa-external-link-alt me-2"></i>
+            Visitar Website
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner">
+      <div class="spinner"></div>
+      <p>Carregando ranking...</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container text-center">
+      <p class="mb-0">© 2025 Academicoapp. Todos os direitos reservados.</p>
+      <div class="footer-links mt-2">
+        <a href="#" class="footer-link">Política de Privacidade</a>
+        <a href="#" class="footer-link">Termos de Uso</a>
+        <a href="#" class="footer-link">Contato</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/ranking.js"></script>
+</body>
+</html>

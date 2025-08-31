@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Repositório Acadêmico - Academicoapp</title>
+  <meta name="description" content="Descubra, leia e baixe materiais educacionais de alta qualidade no repositório acadêmico do Academicoapp">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons" as="style">
+  <link rel="preload" href="css/repository.css" as="style">
+  
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="css/repository.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Header -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="Index.html" aria-label="Voltar para a página inicial">
+        <img src="img/Academicoapp 1a..png" alt="Academicoapp" height="30" loading="lazy">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" 
+              aria-controls="navMain" aria-expanded="false" aria-label="Alternar navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="Dashboard.html">
+              <span class="material-icons me-1">home</span>Home
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="servicesDropdown" 
+               role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="material-icons me-1">support</span>Serviços
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="suporte_academico.html">Suporte Acadêmico</a></li>
+              <li><a class="dropdown-item" href="suporte_profissional.html">Suporte Profissional</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center active" href="repository.html" aria-current="page">
+              <span class="material-icons me-1">library_books</span>Repositório
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="ranking.html">
+              <span class="material-icons me-1">emoji_events</span>Ranking
+            </a>
+          </li>
+		   <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="appsDropdown" role="button" data-bs-toggle="dropdown">
+                <span class="material-icons me-1">extension</span>
+                <span class="nav-text">Apps & Software</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="apps.html">Engenharia</a></li>
+                <li><a class="dropdown-item" href="softwares.html">Ciências</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center" href="loja_academica.html">
+                <span class="material-icons me-1">shop</span>
+                <span class="nav-text">Loja</span>
+              </a>
+            </li>
+        </ul>
+
+        <!-- Enhanced Search -->
+        <form class="d-flex search-container me-3" role="search" id="searchForm">
+          <input class="search-input" type="search" placeholder="Buscar documentos, artigos, livros..." 
+                 aria-label="Buscar materiais" id="searchInput" autocomplete="off">
+          <button class="search-btn" type="submit" aria-label="Pesquisar">
+            <span class="material-icons">search</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section" style="margin-top: 76px;">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          <span class="material-icons align-middle me-3" style="font-size: 2.5rem;">auto_stories</span>
+          Repositório Acadêmico
+        </h1>
+        <p class="hero-subtitle">
+          Descubra, leia e baixe materiais educacionais de alta qualidade para impulsionar seu aprendizado
+        </p>
+		
+		<!-- CTA Button -->
+        <div class="mt-4 animate__animated animate__fadeInUp animate__delay-2s">
+          <a class="btn btn-cta" href="Upload_doc.html">
+            <i class="fa-solid fa-pen-clip me-2"></i>
+            ...Carregue um Material Aqui...
+          </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container-fluid">
+    <div class="row g-4">
+      <!-- Filters Sidebar -->
+      <aside class="col-lg-3">
+        <div class="filters-card">
+          <div class="filters-header">
+            <span class="material-icons me-2">tune</span>
+            Filtros
+          </div>
+          <div class="filters-content">
+            <!-- Material Type Filter -->
+            <div class="filter-group">
+              <label class="filter-label">Tipo de Material</label>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="filter-ebook" data-filter="ebook">
+                <label class="form-check-label" for="filter-ebook">E-books</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="filter-artigo" data-filter="artigo">
+                <label class="form-check-label" for="filter-artigo">Artigos Científicos</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="filter-video" data-filter="video">
+                <label class="form-check-label" for="filter-video">Vídeo Aulas</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="filter-apostila" data-filter="apostila">
+                <label class="form-check-label" for="filter-apostila">Apostilas</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="filter-tese" data-filter="tese">
+                <label class="form-check-label" for="filter-tese">Teses e TCCs</label>
+              </div>
+            </div>
+
+            <!-- Level Filter -->
+            <div class="filter-group">
+              <label class="filter-label" for="levelSelect">Nível</label>
+              <select class="form-select" id="levelSelect">
+                <option value="">Todos os níveis</option>
+                <option value="fundamental">Ensino Fundamental</option>
+                <option value="medio">Ensino Médio</option>
+                <option value="superior">Ensino Superior</option>
+                <option value="pos">Pós-Graduação</option>
+              </select>
+            </div>
+
+            <!-- Knowledge Area Filter -->
+            <div class="filter-group">
+              <label class="filter-label" for="areaSelect">Área de Conhecimento</label>
+              <select class="form-select" id="areaSelect">
+                 <option value="engenharias">Engenharias</option>
+				<option value="">Todas as áreas</option>
+                <option value="exatas">Exatas</option>
+                <option value="biologicas">Biológicas</option>
+                <option value="humanas">Humanas</option>
+                <option value="tecnologicas">Tecnológicas</option>
+				
+              </select>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Content Grid -->
+      <section class="col-lg-9">
+        <!-- Content Header -->
+        <div class="content-header">
+          <div class="results-info">
+            Mostrando <strong id="resultCount">6</strong> de <strong>120</strong> documentos
+          </div>
+          <select class="form-select sort-select" id="sortSelect">
+            <option value="relevance">Relevância</option>
+            <option value="date">Data (mais recentes)</option>
+            <option value="popularity">Popularidade</option>
+            <option value="rating">Melhor avaliados</option>
+          </select>
+        </div>
+
+        <!-- Documents Grid -->
+        <div class="row g-4" id="documentsGrid">
+          <!-- Document 1 -->
+          <div class="col-md-6 col-xl-4" data-type="ebook" data-level="superior" data-area="exatas" data-id="doc-1">
+            <article class="doc-card">
+              <div class="doc-cover">
+                <div class="text-center">
+                  <span class="material-icons doc-icon">menu_book</span>
+                  <div class="doc-cover-text">Cálculo Diferencial e Integral</div>
+                </div>
+              </div>
+              <div class="doc-content">
+                <div class="doc-header">
+                  <span class="badge bg-primary doc-badge">E-book</span>
+                  <button class="favorite-btn" onclick="RepositoryApp.toggleFavorite(this)" aria-label="Favoritar">
+                    <span class="material-icons">favorite_border</span>
+                  </button>
+                </div>
+                <h3 class="doc-title">Cálculo Diferencial e Integral</h3>
+                <p class="doc-meta">Prof. Silva • 2023 • 320 páginas</p>
+                <div class="rating">
+                  <span class="material-icons star">star</span>
+                  <span class="material-icons star">star</span>
+                  <span class="material-icons star">star</span>
+                  <span class="material-icons star">star</span>
+                  <span class="material-icons star empty">star_border</span>
+                  <span class="rating-text">4.0</span>
+                </div>
+                <div class="doc-actions">
+                  <button class="btn btn-outline-primary action-btn" onclick="RepositoryApp.readDocument('Livro_Calculo.pdf')">
+                    <span class="material-icons">visibility</span>Ler
+                  </button>
+                  <button class="btn btn-primary action-btn" onclick="RepositoryApp.downloadResource('Livro_Calculo.pdf')">
+                    <span class="material-icons">download</span>Baixar
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Document 2 -->
+          <div class="col-md-6 col-xl-4" data-type="artigo" data-level="superior" data-area="tecnologicas" data-id="doc-2">
+            <article class="doc-card">
+              <div class="doc-cover doc-cover--blue">
+                <div class="text-center">
+                  <span class="material-icons doc-icon text-primary">article</span>
+                  <div class="doc-cover-text">IA na Educação</div>
+                </div>
+              </div>
+              <div class="doc-content">
+                <div class="doc-header">
+                  <span class="badge bg-success doc-badge">Artigo</span>
+                  <button class="favorite-btn" onclick="RepositoryApp.toggleFavorite(this)" aria-label="Favoritar">
+                    <span class="material-icons">favorite_border</span>
+                  </button>
+                </div>
+                <h3 class="doc-title">Inteligência Artificial na Educação</h3>
+                <p class="doc-meta">Revista EdTech • 2024 • 18 páginas</p>
+                <div class="rating">
+                  <span class="material-icons star">star</span>
+                  <span class="material-icons star">star</span>
+                  <span class="material-icons star">star</span>
+                  <span class="material-icons star">star</span>
+                  <span class="material-icons star">star</span>
+                  <span class="rating-text">5.0</span>
+                </div>
+                <div class="doc-actions">
+                  <button class="btn btn-outline-primary action-btn" onclick="RepositoryApp.readDocument('IA_Educacao.pdf')">
+                    <span class="material-icons">visibility</span>Ler
+                  </button>
+                  <button class="btn btn-primary action-btn" onclick="RepositoryApp.downloadResource('IA_Educacao.pdf')">
+                    <span class="material-icons">download</span>Baixar
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Document 3 -->
+          <div class="col-md-6 col-xl-4" data-type="video" data-level="medio" data-area="exatas" data-id="doc-3">
+            <article class="doc-card">
+              <div class="doc-cover doc-cover--yellow">
+                <div class="text-center">
+                  <span class="material-icons doc-icon text-warning">play_circle</span>
+                  <div class="doc-cover-text">Física Moderna</div>
+                </div>
+              </div>
+              <div class="doc-content">
+                <div class="doc-header">
+                  <span class="badge bg-warning text-dark doc-badge">Vídeo</span>
+                  <button class="favorite-btn" onclick="RepositoryApp.toggleFavorite(this)" aria-label="Favoritar">
+                    <span class="material-icons">favorite_border</span>
+                  </button>
+                </div>
+                <h3 class="doc-title">Física Moderna - Aula 05</h3>
+                <p class="doc-meta">Prof. Novais • 45 min • Ensino Médio</p>
+                <div class="rating">
+                  <span class="material-icons star">star</span>
+                  <span class="material-icons star">star</span>
+                  <span class="material-icons star">star</span>
+                  <span class="material-icons star">star_half</span>
+                  <span class="material-icons star empty">star_border</span>
+                  <span class="rating-text">3.5</span>
+                </div>
+                <div class="doc-actions">
+                  <button class="btn btn-outline-primary action-btn" onclick="RepositoryApp.playVideo('fisica_moderna_aula5')">
+                    <span class="material-icons">play_arrow</span>Assistir
+                  </button>
+                  <button class="btn btn-primary action-btn" onclick="RepositoryApp.downloadResource('fisica_moderna_aula5.mp4')">
+                    <span class="material-icons">download</span>Baixar
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Load More Button -->
+        <div class="text-center mt-4">
+          <button class="btn btn-outline-primary btn-lg" onclick="RepositoryApp.loadMore()" id="loadMoreBtn">
+            <span class="text">Carregar mais documentos</span>
+            <span class="loading d-none ms-2"></span>
+          </button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Toast Container -->
+  <div id="toastContainer" class="position-fixed" style="top: 100px; right: 20px; z-index: 1050;"></div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="js/repository.js"></script>
+</body>
+</html>

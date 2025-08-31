@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Avaliação Institucional – AcademicoApp</title>
+  <meta name="description" content="Sistema de avaliação institucional baseado em critérios acadêmicos">
+  
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/avaliacao.css">
+</head>
+<body>
+  <!-- Formas flutuantes decorativas -->
+  <div class="floating-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="img/Academicoapp-logo3.png" alt="Logo AcademicoApp" height="40" loading="lazy">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="Pagina_inicial.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#services">Serviços</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" id="rankingMenu" role="button" data-bs-toggle="dropdown">Ranking</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item active" href="ranking.html">Ranking Institucional</a></li>
+              <li><a class="dropdown-item" href="ranking_users.html">Ranking Acadêmico</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="recursosMenu" role="button" data-bs-toggle="dropdown">Recursos</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="index.html#community">Publicações & Chat</a></li>
+              <li><a class="dropdown-item" href="repositorio_1.html">Repositório acadêmico</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="index.html#team">Equipa</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contactos</a></li>
+          <li class="nav-item ms-lg-2"><a class="btn btn-orange" href="login_cadastro.html">Entrar</a></li>
+          <li class="nav-item ms-lg-3">
+            <button id="themeToggle" class="btn btn-outline-orange" type="button" title="Alternar tema">
+              <i class="fa-solid fa-moon"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-container">
+    <!-- Header Section -->
+    <div class="evaluation-header">
+      <div class="container">
+        <div class="header-content">
+          <div class="header-info">
+            <h1 class="header-title">
+              <i class="fas fa-clipboard-check me-3"></i>
+              Formulário de Avaliação Institucional
+            </h1>
+            <p class="header-description">
+              Avalie cada critério de <strong>1 (muito fraco)</strong> a <strong>5 (excelente)</strong>. 
+              O resultado é ponderado pelos pesos de cada dimensão.
+            </p>
+          </div>
+          
+          <div class="score-display">
+            <div class="score-label">Pontuação Ponderada</div>
+            <div class="score-value" id="score-global">—</div>
+            <div class="score-progress">
+              <div class="progress-bar-custom">
+                <div class="progress-fill" id="score-progress" style="width: 0%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Institution Selection -->
+    <section class="institution-section">
+      <div class="container">
+        <div class="institution-card">
+          <div class="card-header">
+            <h4><i class="fas fa-university me-2"></i>Seleção da Instituição</h4>
+          </div>
+          <div class="card-body">
+            <div class="row g-3">
+              <div class="col-md-5">
+                <label for="tipo-select" class="form-label">
+                  <i class="fas fa-building me-2"></i>
+                  Tipo de instituição <span class="required">*</span>
+                </label>
+                <select id="tipo-select" class="form-select custom-select" required>
+                  <option value="" selected disabled>Selecione o tipo...</option>
+                  <option value="Universidade">Universidade</option>
+                  <option value="Instituto Médio/Superior">Instituto Médio/Superior</option>
+                  <option value="Centro Técnico/Profissional">Centro Técnico/Profissional</option>
+                </select>
+                <div class="invalid-feedback">Selecione o tipo.</div>
+              </div>
+              
+              <div class="col-md-7">
+                <label for="instituicao-select" class="form-label">
+                  <i class="fas fa-school me-2"></i>
+                  Instituição avaliada <span class="required">*</span>
+                </label>
+                <select id="instituicao-select" class="form-select custom-select" required>
+                  <option value="" selected disabled>Selecione o tipo antes...</option>
+                </select>
+                <div class="invalid-feedback">Selecione ou cadastre a instituição.</div>
+              </div>
+              
+              <div class="col-12">
+                <div class="action-buttons">
+                  <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalInstituicao">
+                    <i class="bi bi-building-add me-2"></i>Nova instituição
+                  </button>
+                  <button type="button" id="btn-remover-inst" class="btn btn-outline-danger">
+                    <i class="bi bi-trash me-2"></i>Remover selecionada
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Action Buttons -->
+    <section class="actions-section">
+      <div class="container">
+        <div class="actions-toolbar">
+          <div class="primary-actions">
+            <button type="button" id="btn-calcular" class="btn btn-primary btn-lg">
+              <i class="bi bi-calculator me-2"></i>Calcular
+            </button>
+            <button type="button" id="btn-limpar" class="btn btn-outline-secondary btn-lg">
+              <i class="bi bi-eraser me-2"></i>Limpar
+            </button>
+          </div>
+          
+          <div class="secondary-actions">
+            <button type="button" id="btn-exportar" class="btn btn-success">
+              <i class="bi bi-download me-2"></i>Exportar CSV
+            </button>
+            <button type="button" id="btn-ajuda" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#modalAjuda">
+              <i class="fas fa-question-circle me-2"></i>Ajuda
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Evaluation Form -->
+    <section class="evaluation-section">
+      <div class="container">
+        <form id="avaliacao-form" novalidate>
+          <!-- Form content will be generated by JavaScript -->
+        </form>
+      </div>
+    </section>
+
+    <!-- Comments Section -->
+    <section class="comments-section">
+      <div class="container">
+        <div class="comments-card">
+          <div class="card-header">
+            <h4><i class="fas fa-comment-dots me-2"></i>Observações Gerais</h4>
+          </div>
+          <div class="card-body">
+            <textarea id="observacoes" class="form-control custom-textarea" rows="4" 
+                      placeholder="Adicione notas, justificativas, evidências ou comentários adicionais sobre a avaliação..."></textarea>
+            <div class="form-hint">
+              <i class="fas fa-info-circle me-2"></i>
+              Passe o cursor sobre o título de cada critério para ver a descrição detalhada.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal: Nova Instituição -->
+  <div class="modal fade" id="modalInstituicao" tabindex="-1">
+    <div class="modal-dialog">
+      <form class="modal-content" id="form-instituicao">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            <i class="bi bi-building me-2"></i>Cadastrar Nova Instituição
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="instituicao-tipo" class="form-label">
+              Tipo <span class="required">*</span>
+            </label>
+            <select id="instituicao-tipo" class="form-select" required>
+              <option value="" selected disabled>Selecione...</option>
+              <option value="Universidade">Universidade</option>
+              <option value="Instituto Médio/Superior">Instituto Médio/Superior</option>
+              <option value="Centro Técnico/Profissional">Centro Técnico/Profissional</option>
+            </select>
+            <div class="invalid-feedback">Selecione o tipo.</div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="instituicao-prov" class="form-label">Província (opcional)</label>
+            <select id="instituicao-prov" class="form-select">
+              <option value="">—</option>
+              <option>Luanda</option>
+              <option>Benguela</option>
+              <option>Huíla</option>
+              <option>Huambo</option>
+              <option>Kwanza Sul</option>
+              <option>Cabinda</option>
+              <option>Uíge</option>
+              <option>Malanje</option>
+              <option>Lunda Norte</option>
+              <option>Lunda Sul</option>
+            </select>
+          </div>
+          
+          <div>
+            <label for="instituicao-nome" class="form-label">
+              Nome da instituição <span class="required">*</span>
+            </label>
+            <input type="text" id="instituicao-nome" class="form-control" 
+                   placeholder="Ex.: Universidade X" required>
+            <div class="invalid-feedback">Informe um nome válido.</div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-save me-2"></i>Salvar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Ajuda -->
+  <div class="modal fade" id="modalAjuda" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            <i class="fas fa-question-circle me-2"></i>Como Funciona a Avaliação
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="help-content">
+            <div class="help-section">
+              <h6><i class="fas fa-info-circle me-2"></i>Metodologia</h6>
+              <p>A avaliação institucional é baseada em <strong>5 dimensões principais</strong> com pesos diferentes:</p>
+              <ul>
+                <li><strong>Qualidade de Ensino (30%)</strong> - Ratio estudante/professor, qualificações docentes, taxa de conclusão</li>
+                <li><strong>Investigação (25%)</strong> - Publicações, projetos de pesquisa, parcerias internacionais</li>
+                <li><strong>Empregabilidade (20%)</strong> - Taxa de emprego dos graduados, parcerias empresariais</li>
+                <li><strong>Infraestrutura (15%)</strong> - Instalações, recursos tecnológicos, bibliotecas</li>
+                <li><strong>Reputação e Impacto Social (10%)</strong> - Reconhecimento, extensão comunitária, diversidade</li>
+              </ul>
+            </div>
+            
+            <div class="help-section">
+              <h6><i class="fas fa-calculator me-2"></i>Cálculo da Pontuação</h6>
+              <p>Cada dimensão tem vários critérios avaliados de 1 a 5. A pontuação final é calculada através de:</p>
+              <ol>
+                <li>Média dos critérios de cada dimensão</li>
+                <li>Conversão para escala 0-100</li>
+                <li>Aplicação dos pesos por dimensão</li>
+                <li>Soma ponderada final</li>
+              </ol>
+            </div>
+            
+            <div class="help-section">
+              <h6><i class="fas fa-chart-bar me-2"></i>Interpretação dos Resultados</h6>
+              <div class="score-legend">
+                <div class="legend-item legend-excellent">85-100: Excelente</div>
+                <div class="legend-item legend-good">70-84: Bom</div>
+                <div class="legend-item legend-average">50-69: Médio</div>
+                <div class="legend-item legend-poor">0-49: Necessita Melhorias</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-orange" data-bs-dismiss="modal">
+            Entendi
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner">
+      <div class="spinner"></div>
+      <p>Processando avaliação...</p>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/avaliacao.js"></script>
+</body>
+</html>

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dashboard do Academicoapp - Plataforma acadêmica com suporte profissional">
+  <meta name="author" content="Academicoapp">
+  <title>Pagina Inicial - Academicoapp</title>
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons" as="style">
+  <link rel="preload" href="css/dashboard.css" as="style">
+  
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link href="css/dashboard.css" rel="stylesheet">
+</head>
+
+<body data-theme="light">
+  <!-- Header -->
+  <header class="main-header">
+    <nav class="navbar navbar-expand-lg px-3">
+      <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand me-4" href="index.html" aria-label="Academicoapp - Página inicial">
+          <img src="img/Aapp_8.png" alt="Academicoapp" height="45" loading="lazy">
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" 
+                aria-controls="navMain" aria-expanded="false" aria-label="Alternar navegação">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMain">
+          <!-- Navigation Links -->
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#" aria-current="page">
+                <span class="material-icons me-1">home</span>
+                <span class="nav-text">Home</span>
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown">
+                <span class="material-icons me-1">support</span>
+                <span class="nav-text">Serviços</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="suporte_academico.html">Suporte Acadêmico</a></li>
+                <li><a class="dropdown-item" href="suporte_profissional.html">Suporte Profissional</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="repository.html">
+                <span class="material-icons me-1">library_books</span>
+                <span class="nav-text">Repositório</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="ranking_1.html">
+                <span class="material-icons me-1">emoji_events</span>
+                <span class="nav-text">Ranking</span>
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="appsDropdown" role="button" data-bs-toggle="dropdown">
+                <span class="material-icons me-1">extension</span>
+                <span class="nav-text">Apps & Software</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="apps.html">Engenharia</a></li>
+                <li><a class="dropdown-item" href="softwares.html">Ciências</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="loja_academica.html">
+                <span class="material-icons me-1">shop</span>
+                <span class="nav-text">Loja</span>
+              </a>
+            </li>
+          </ul>
+
+          <!-- Search Bar -->
+          <form class="search-form me-3" onsubmit="DashboardApp.handleSearch(event)">
+            <div class="search-container">
+              <span class="material-icons search-icon">search</span>
+              <input type="search" class="search-input" placeholder="Pesquisar..." id="searchInput" autocomplete="off">
+            </div>
+          </form>
+
+          <!-- User Actions -->
+          <div class="user-actions">
+            <!-- Notifications -->
+            <div class="dropdown">
+              <button class="action-btn" data-bs-toggle="dropdown" aria-label="Notificações">
+                <span class="material-icons">notifications</span>
+                <span class="notification-badge" id="notificationBadge">3</span>
+              </button>
+              <div class="dropdown-menu dropdown-menu-end notification-dropdown">
+                <div class="notification-header">
+                  <h6>Notificações Recentes</h6>
+                  <button class="btn-clear-all" onclick="DashboardApp.clearNotifications()">Limpar todas</button>
+                </div>
+                <div class="notification-list" id="notificationList">
+                  <div class="notification-item">
+                    <div class="notification-icon">
+                      <span class="material-icons">message</span>
+                    </div>
+                    <div class="notification-content">
+                      <p>Nova mensagem de Diatumua</p>
+                      <small>Há 5 minutos</small>
+                    </div>
+                  </div>
+                  <div class="notification-item">
+                    <div class="notification-icon">
+                      <span class="material-icons">schedule</span>
+                    </div>
+                    <div class="notification-content">
+                      <p>Aula de Matemática em 1 hora</p>
+                      <small>Há 55 minutos</small>
+                    </div>
+                  </div>
+                  <div class="notification-item">
+                    <div class="notification-icon">
+                      <span class="material-icons">library_add</span>
+                    </div>
+                    <div class="notification-content">
+                      <p>Novo material disponível</p>
+                      <small>Há 2 horas</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Theme Toggle -->
+            <button class="action-btn" id="themeToggle" aria-label="Alternar tema">
+              <span class="material-icons">dark_mode</span>
+            </button>
+
+            <!-- User Profile -->
+            <div class="dropdown">
+              <button class="profile-btn" data-bs-toggle="dropdown">
+                <img src="img/nov.jpg" alt="Perfil do usuário" class="profile-avatar">
+                <span class="profile-name">Novais</span>
+                <span class="material-icons">expand_more</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="perfil.html">
+                  <span class="material-icons me-2">person</span>Meu Perfil
+                </a></li>
+                <li><a class="dropdown-item" href="configuracoes.html">
+                  <span class="material-icons me-2">settings</span>Configurações
+                </a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="index.html">
+                  <span class="material-icons me-2">logout</span>Sair
+                </a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container-fluid">
+      <div class="row g-4">
+        <!-- Left Sidebar -->
+        <aside class="col-lg-3 col-md-4">
+          <!-- Profile Card -->
+          <div class="profile-card">
+            <div class="profile-header">
+              <img src="img/nov.jpg" alt="Foto do professor Novais" class="profile-image">
+            </div>
+            <div class="profile-info">
+              <h5>Prof. Novais</h5>
+              <p class="profile-role">
+                <span class="material-icons">school</span>
+                ITEL • Matemática
+              </p>
+              <div class="profile-stats">
+                <div class="stat-item">
+                  <strong>150</strong>
+                  <small>Posts</small>
+                </div>
+                <div class="stat-item">
+                  <strong>1.2K</strong>
+                  <small>Seguidores</small>
+                </div>
+                <div class="stat-item">
+                  <strong>89</strong>
+                  <small>Seguindo</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="widget-card">
+            <div class="widget-header">
+              <span class="material-icons">bolt</span>
+              <h6>Ações Rápidas</h6>
+            </div>
+            <div class="quick-actions">
+              <a href="#" class="quick-action-item">
+                <span class="material-icons">group</span>
+                <span>Chat com Professores</span>
+              </a>
+              <a href="#" class="quick-action-item">
+                <span class="material-icons">people</span>
+                <span>Chat com Estudantes</span>
+              </a>
+              <a href="#" class="quick-action-item">
+                <span class="material-icons">event</span>
+                <span>Minha Agenda</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Schedule Widget -->
+          <div class="widget-card">
+            <div class="widget-header">
+              <span class="material-icons">schedule</span>
+              <h6>Próximas Atividades</h6>
+            </div>
+            <div class="schedule-list">
+              <div class="schedule-item">
+                <div class="schedule-time">
+                  <span class="badge bg-primary">Hoje</span>
+                  <small>10:00 - 11:00</small>
+                </div>
+                <div class="schedule-content">
+                  <h6>Aula de Matemática</h6>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-time">
+                  <span class="badge bg-secondary">Amanhã</span>
+                  <small>14:00 - 15:00</small>
+                </div>
+                <div class="schedule-content">
+                  <h6>Reunião de Equipa</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Feed -->
+        <section class="col-lg-6 col-md-8">
+          <!-- Post Creator -->
+          <div class="post-creator">
+            <div class="creator-header">
+              <img src="img/nov.jpg" alt="Sua foto" class="creator-avatar">
+              <textarea class="creator-input" rows="3" placeholder="O que está a pensar?" 
+                        id="postContent" maxlength="500"></textarea>
+            </div>
+            <div class="creator-footer">
+              <div class="creator-actions">
+                <button class="creator-btn" title="Adicionar foto" onclick="DashboardApp.addMedia('photo')">
+                  <span class="material-icons">photo_camera</span>
+                </button>
+                <button class="creator-btn" title="Adicionar vídeo" onclick="DashboardApp.addMedia('video')">
+                  <span class="material-icons">videocam</span>
+                </button>
+                <button class="creator-btn" title="Adicionar arquivo" onclick="DashboardApp.addMedia('file')">
+                  <span class="material-icons">attach_file</span>
+                </button>
+                <button class="creator-btn" title="Adicionar localização" onclick="DashboardApp.addLocation()">
+                  <span class="material-icons">location_on</span>
+                </button>
+              </div>
+              <button class="btn-publish" onclick="DashboardApp.publishPost()">
+                <span class="publish-text">Publicar</span>
+                <span class="loading-spinner d-none"></span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Feed Posts -->
+          <div class="feed-container" id="feedContainer">
+            <!-- Sample Post -->
+            <article class="post-card">
+              <div class="post-header">
+                <div class="post-author">
+                  <img src="img/diatumua.png" alt="Diatumua Simão" class="author-avatar">
+                  <div class="author-info">
+                    <h6>Diatumua Simão</h6>
+                    <small>Há 2 horas • <span class="material-icons">public</span></small>
+                  </div>
+                </div>
+                <div class="post-menu">
+                  <button class="menu-btn" data-bs-toggle="dropdown">
+                    <span class="material-icons">more_horiz</span>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#">Salvar post</a></li>
+                    <li><a class="dropdown-item" href="#">Seguir autor</a></li>
+                    <li><a class="dropdown-item" href="#">Reportar</a></li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="post-content">
+                <p>Começou a Semana Global do Empreendedorismo! 🚀 Uma oportunidade única para todos os estudantes e profissionais interessados em inovação.</p>
+                <div class="post-media">
+                  <img src="img/gwe.jpg" alt="Evento GWE - Semana Global do Empreendedorismo" class="post-image">
+                </div>
+              </div>
+              
+              <div class="post-actions">
+                <button class="post-action-btn" onclick="DashboardApp.likePost(1)">
+                  <span class="material-icons">thumb_up</span>
+                  <span>Curtir</span>
+                  <span class="action-count">12</span>
+                </button>
+                <button class="post-action-btn" onclick="DashboardApp.commentPost(1)">
+                  <span class="material-icons">chat_bubble_outline</span>
+                  <span>Comentar</span>
+                  <span class="action-count">3</span>
+                </button>
+                <button class="post-action-btn" onclick="DashboardApp.sharePost(1)">
+                  <span class="material-icons">share</span>
+                  <span>Partilhar</span>
+                </button>
+              </div>
+            </article>
+
+            <!-- Load More -->
+            <div class="load-more-container">
+              <button class="btn-load-more" onclick="DashboardApp.loadMorePosts()">
+                <span class="load-text">Carregar mais posts</span>
+                <span class="loading-spinner d-none"></span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Right Sidebar -->
+        <aside class="col-lg-3 d-none d-lg-block">
+          <!-- Video Widget -->
+          <div class="widget-card">
+            <div class="widget-header">
+              <span class="material-icons">play_circle</span>
+              <h6>Videoaula Recomendada</h6>
+            </div>
+            <div class="video-widget">
+              <div class="video-thumbnail">
+                <img src="img/video-thumb.jpg" alt="Função Quadrática" class="video-image">
+                <button class="video-play-btn" onclick="DashboardApp.playVideo('qBw9prfEbSY')">
+                  <span class="material-icons">play_arrow</span>
+                </button>
+              </div>
+              <div class="video-info">
+                <h6>Função Quadrática</h6>
+                <p>Aprenda os conceitos fundamentais das funções do 2º grau</p>
+                <small class="video-duration">15:32</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ranking Widget -->
+          <div class="widget-card">
+            <div class="widget-header">
+              <span class="material-icons">emoji_events</span>
+              <h6>Top Colaboradores</h6>
+            </div>
+            <div class="ranking-list">
+              <div class="ranking-item">
+                <div class="rank-position">
+                  <span class="rank-badge gold">1</span>
+                </div>
+                <div class="rank-info">
+                  <span>Diatumua</span>
+                  <small>2,450 pts</small>
+                </div>
+              </div>
+              <div class="ranking-item">
+                <div class="rank-position">
+                  <span class="rank-badge silver">2</span>
+                </div>
+                <div class="rank-info">
+                  <span>Novais</span>
+                  <small>2,130 pts</small>
+                </div>
+              </div>
+              <div class="ranking-item">
+                <div class="rank-position">
+                  <span class="rank-badge bronze">3</span>
+                </div>
+                <div class="rank-info">
+                  <span>Universidade Soyo</span>
+                  <small>1,980 pts</small>
+                </div>
+              </div>
+              <div class="widget-footer">
+                <a href="ranking.html" class="btn-see-more">Ver ranking completo</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- News Widget -->
+          <div class="widget-card">
+            <div class="widget-header">
+              <span class="material-icons">article</span>
+              <h6>Notícias Acadêmicas</h6>
+            </div>
+            <div class="news-list">
+              <div class="news-item">
+                <div class="news-icon">📚</div>
+                <div class="news-content">
+                  <h6>Inscrições abertas para bolsas 2025</h6>
+                  <small>Deadline: 30 de setembro</small>
+                </div>
+              </div>
+              <div class="news-item">
+                <div class="news-icon">🎓</div>
+                <div class="news-content">
+                  <h6>Conferência Internacional de Educação</h6>
+                  <small>15-17 de setembro em Luanda</small>
+                </div>
+              </div>
+              <div class="widget-footer">
+                <a href="noticias.html" class="btn-see-more">Ver todas</a>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- AI Chat Widget -->
+  <div class="chat-widget">
+    <button class="chat-toggle" id="chatToggle" aria-label="Assistente IA">
+      <span class="material-icons">smart_toy</span>
+    </button>
+    
+    <div class="chat-container d-none" id="chatContainer">
+      <div class="chat-header">
+        <div class="chat-title">
+          <span class="material-icons">smart_toy</span>
+          <span>Assistente IA</span>
+        </div>
+        <button class="chat-close" id="chatClose">
+          <span class="material-icons">close</span>
+        </button>
+      </div>
+      
+      <div class="chat-messages" id="chatMessages">
+        <div class="message bot-message">
+          <div class="message-content">
+            Olá! Sou o assistente do Academicoapp. Como posso ajudá-lo hoje?
+          </div>
+        </div>
+      </div>
+      
+      <div class="chat-input-container">
+        <input type="text" class="chat-input" placeholder="Digite sua pergunta..." 
+               id="chatInput" maxlength="500">
+        <button class="chat-send" onclick="DashboardApp.sendMessage()">
+          <span class="material-icons">send</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Custom JS -->
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

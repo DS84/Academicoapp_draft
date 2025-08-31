@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Suporte Acadêmico – Academicoapp</title>
+  <meta name="description" content="Suporte acadêmico personalizado: mentorias, orientação de TCC/teses, revisão de trabalhos e preparação para exames">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <!-- Animate.css -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/suporte.css">
+</head>
+<body data-page="academico">
+  <!-- Floating Decorative Shapes -->
+  <div class="floating-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top main-header">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="img/Academicoapp-logo3.png" alt="Logo AcademicoApp" height="40" loading="lazy">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html#about">Sobre</a></li>
+          
+          <!-- Serviços Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown">Serviços</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item active" href="suporte_academico.html">Suporte Acadêmico</a></li>
+              <li><a class="dropdown-item" href="suporte_profissional.html">Suporte Profissional</a></li>
+            </ul>
+          </li>
+
+          <!-- Repositório -->
+          <li class="nav-item">
+            <a class="nav-link" href="Repository.html">Repositório</a>
+          </li>
+
+          <!-- Ranking -->
+          <li class="nav-item">
+            <a class="nav-link" href="ranking.html">Ranking</a>
+          </li>
+
+          <!-- Apps -->
+          <li class="nav-item">
+            <a class="nav-link" href="#">Apps</a>
+          </li>
+
+          <!-- Loja -->
+          <li class="nav-item">
+            <a class="nav-link" href="Loja_academica.html">Loja</a>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="index.html#team">Equipa</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contactos</a></li>
+          
+          <li class="nav-item ms-lg-2">
+            <a class="btn btn-orange" href="login.html">Entrar</a>
+          </li>
+          
+          <li class="nav-item ms-lg-3">
+            <button id="themeToggle" class="btn btn-outline-orange" type="button" aria-pressed="false" title="Alternar tema">
+              <i class="fa-solid fa-moon"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-5" style="margin-top: 72px;">
+    <!-- Breadcrumb -->
+    <section class="bg-light py-3" data-bs-theme="light">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Início</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Suporte Acadêmico</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero-section py-10">
+      <div class="container text-center">
+        <h1 class="display-4 fw-bold mb-4 animate__animated animate__fadeInDown">
+          Suporte Acadêmico Personalizado
+        </h1>
+        <p class="lead mb-6 text-muted animate__animated animate__fadeInUp animate__delay-1s">
+          Mentorias, orientação de TCC/teses, revisão de trabalhos e preparação para exames.
+        </p>
+        <div class="row justify-content-center mt-5">
+          <div class="col-md-8">
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+              <div class="text-center animate__animated animate__fadeInUp animate__delay-2s">
+                <div class="feature-icon mx-auto">
+                  <i class="fas fa-user-graduate"></i>
+                </div>
+                <h6>Mentoria </h6>
+              </div>
+              <div class="text-center animate__animated animate__fadeInUp animate__delay-2s">
+                <div class="feature-icon mx-auto">
+                  <i class="fas fa-book-open"></i>
+                </div>
+                <h6>Orientação de TCC</h6>
+              </div>
+              <div class="text-center animate__animated animate__fadeInUp animate__delay-2s">
+                <div class="feature-icon mx-auto">
+                  <i class="fas fa-clipboard-check"></i>
+                </div>
+                <h6>Revisão de Trabalhos</h6>
+              </div>
+              <div class="text-center animate__animated animate__fadeInUp animate__delay-2s">
+                <div class="feature-icon mx-auto">
+                  <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h6>Preparação para Exames</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking-section py-10">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-6">
+            <div class="card shadow-lg border-0 animate__animated animate__fadeInLeft">
+              <div class="card-body p-5">
+                <h2 class="mb-4"><i class="fas fa-calendar-check text-orange me-2"></i>Agende sua sessão</h2>
+                <form id="bookingForm" class="needs-validation" novalidate>
+                  <div class="mb-4">
+                    <label class="form-label" for="area">
+                      <i class="fas fa-graduation-cap me-2"></i>Área de estudo
+                    </label>
+                    <select id="area" class="form-select" required>
+                      <option value="">Selecione uma área</option>
+                      <option value="geociencias">Geociências</option>
+                      <option value="engenharias">Engenharias</option>
+                      <option value="tecnologia">Tecnologia</option>
+                      <option value="gestao">Gestão</option>
+                      <option value="direito">Direito</option>
+                      <option value="medicina">Medicina</option>
+                      <option value="humanas">Ciências Humanas</option>
+                      <option value="exatas">Ciências Exatas</option>
+                    </select>
+                    <div class="invalid-feedback">Por favor, selecione uma área de estudo.</div>
+                  </div>
+
+                  <div class="mb-4">
+                    <label class="form-label" for="tipo">
+                      <i class="fas fa-hands-helping me-2"></i>Tipo de suporte
+                    </label>
+                    <select id="tipo" class="form-select" required>
+                      <option value="">Selecione o tipo</option>
+                      <option value="mentoria">Mentoria acadêmica</option>
+                      <option value="revisao">Revisão de trabalho acadêmico</option>
+                      <option value="exame">Preparação para exames</option>
+                      <option value="tcc">Orientação de TCC/tese</option>
+                      <option value="artigo">Revisão de artigo científico</option>
+                      <option value="apresentacao">Preparação de apresentação</option>
+                    </select>
+                    <div class="invalid-feedback">Por favor, selecione o tipo de suporte.</div>
+                  </div>
+
+                  <div class="mb-4">
+                    <label class="form-label" for="data">
+                      <i class="fas fa-calendar-alt me-2"></i>Data preferida
+                    </label>
+                    <input id="data" type="date" class="form-control" required>
+                    <div class="invalid-feedback">Por favor, selecione uma data.</div>
+                  </div>
+
+                  <div class="mb-4">
+                    <label class="form-label" for="horario">
+                      <i class="fas fa-clock me-2"></i>Horário preferido
+                    </label>
+                    <select id="horario" class="form-select" required>
+                      <option value="">Selecione o horário</option>
+                      <option value="manha">Manhã (08h-12h)</option>
+                      <option value="tarde">Tarde (14h-18h)</option>
+                      <option value="noite">Noite (19h-22h)</option>
+                    </select>
+                    <div class="invalid-feedback">Por favor, selecione um horário.</div>
+                  </div>
+
+                  <div class="mb-4">
+                    <label class="form-label" for="descricao">
+                      <i class="fas fa-comment-alt me-2"></i>Descreva sua necessidade (opcional)
+                    </label>
+                    <textarea id="descricao" class="form-control" rows="3" placeholder="Ex: Preciso de ajuda com metodologia de pesquisa..."></textarea>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary btn-lg w-100">
+                    <i class="fas fa-paper-plane me-2"></i>Solicitar Agendamento
+                  </button>
+                </form>
+
+                <div id="successMessage" class="alert alert-success mt-4 success-alert d-none">
+                  <i class="fas fa-check-circle me-2"></i>
+                  Solicitação enviada! Entraremos em contato em até 24h.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="card shadow-lg border-0 animate__animated animate__fadeInRight">
+              <div class="card-body p-5">
+                <h2 class="mb-4"><i class="fas fa-star text-warning me-2"></i>O que está incluído</h2>
+                <ul class="list-unstyled mb-5">
+                  <li class="mb-3 d-flex">
+                    <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                    <div>
+                      <strong>Plano de estudo personalizado</strong>
+                      <p class="text-muted mb-0">Adaptado ao seu ritmo e objetivos acadêmicos.</p>
+                    </div>
+                  </li>
+                  <li class="mb-3 d-flex">
+                    <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                    <div>
+                      <strong>Checklist completo de TCC/artigo</strong>
+                      <p class="text-muted mb-0">Estrutura, formatação, referências e mais.</p>
+                    </div>
+                  </li>
+                  <li class="mb-3 d-flex">
+                    <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                    <div>
+                      <strong>Relatório detalhado com feedback</strong>
+                      <p class="text-muted mb-0">Pontos fortes, áreas de melhoria e próximos passos.</p>
+                    </div>
+                  </li>
+                  <li class="mb-3 d-flex">
+                    <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                    <div>
+                      <strong>Suporte pós-sessão por 7 dias</strong>
+                      <p class="text-muted mb-0">Dúvidas, ajustes e acompanhamento.</p>
+                    </div>
+                  </li>
+                  <li class="mb-3 d-flex">
+                    <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                    <div>
+                      <strong>Material de apoio exclusivo</strong>
+                      <p class="text-muted mb-0">Templates, guias e recursos complementares.</p>
+                    </div>
+                  </li>
+                </ul>
+
+                <div class="alert alert-info">
+                  <i class="fas fa-gift me-2"></i>
+                  <strong>Primeira sessão gratuita para novos usuários!</strong>
+                </div>
+
+                <div class="price-info mt-4 p-4 bg-light rounded">
+                  <h5 class="mb-3">Valores por sessão:</h5>
+                  <ul class="list-unstyled mb-0">
+                    <li><i class="fas fa-tag me-2 text-orange"></i>Mentoria 1:1: <strong>15.000 Kz</strong></li>
+                    <li><i class="fas fa-tag me-2 text-orange"></i>Revisão de trabalho: <strong>20.000 Kz</strong></li>
+                    <li><i class="fas fa-tag me-2 text-orange"></i>Orientação TCC: <strong>25.000 Kz</strong></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section py-10 bg-light">
+      <div class="container">
+        <div class="text-center mb-8">
+          <h2 class="display-6 fw-bold">Depoimentos de Estudantes</h2>
+          <p class="text-muted">Veja o que nossos usuários dizem sobre o suporte acadêmico</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="testimonial-card card h-100 shadow-sm animate__animated animate__fadeInUp animate__delay-1s">
+              <div class="card-body">
+                <div class="text-warning mb-3">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <p class="card-text">"A mentoria mudou minha abordagem para o TCC. Consegui defender com excelência!"</p>
+                <div class="d-flex align-items-center mt-4">
+                  <div class="avatar-circle me-3">JP</div>
+                  <div>
+                    <strong>João Pedro</strong>
+                    <div class="text-muted small">Eng. Informática, UAN</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="testimonial-card card h-100 shadow-sm animate__animated animate__fadeInUp animate__delay-2s">
+              <div class="card-body">
+                <div class="text-warning mb-3">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <p class="card-text">"Revisão detalhada do meu artigo científico. Corrigiram até detalhes de APA."</p>
+                <div class="d-flex align-items-center mt-4">
+                  <div class="avatar-circle me-3">MC</div>
+                  <div>
+                    <strong>Marta Costa</strong>
+                    <div class="text-muted small">Psicologia, UCAN</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="testimonial-card card h-100 shadow-sm animate__animated animate__fadeInUp animate__delay-3s">
+              <div class="card-body">
+                <div class="text-warning mb-3">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p class="card-text">"Preparação intensiva para o exame de admissão. Aprovado na primeira tentativa!"</p>
+                <div class="d-flex align-items-center mt-4">
+                  <div class="avatar-circle me-3">RA</div>
+                  <div>
+                    <strong>Rui António</strong>
+                    <div class="text-muted small">Medicina, UAN</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section py-10">
+      <div class="container">
+        <div class="text-center mb-8">
+          <h2 class="display-6 fw-bold">Perguntas Frequentes</h2>
+          <p class="text-muted">Tire suas dúvidas sobre o serviço de suporte acadêmico</p>
+        </div>
+        <div class="accordion custom-accordion" id="faqAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                <i class="fas fa-question-circle me-2 text-orange"></i>
+                Quanto custa uma sessão de mentoria?
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                A primeira sessão é gratuita! Após isso, o valor varia de acordo com a área e duração. Em média, 15.000 a 25.000 Kz por sessão.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                <i class="fas fa-question-circle me-2 text-orange"></i>
+                Como funciona a revisão de trabalhos?
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Você envia seu trabalho (PDF ou Word), e nosso especialista faz uma análise detalhada de conteúdo, estrutura, formatação e referências, devolvendo em até 48h com comentários e sugestões.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                <i class="fas fa-question-circle me-2 text-orange"></i>
+                Os mentores são qualificados?
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Sim! Todos os mentores têm pós-graduação e experiência acadêmica comprovada. Muitos são doutores ou professores universitários com anos de experiência em orientação.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                <i class="fas fa-question-circle me-2 text-orange"></i>
+                Posso agendar sessões recorrentes?
+              </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Sim! Oferecemos pacotes mensais com desconto para sessões recorrentes. Ideal para acompanhamento de TCC ou preparação prolongada para exames.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer text-center py-5 mt-5">
+    <div class="container">
+      <p class="mb-0">© 2025 AcademicoApp. Todos os direitos reservados.</p>
+      <div class="footer-links mt-2">
+        <a href="#" class="text-decoration-none text-muted me-3">Política de Privacidade</a>
+        <a href="#" class="text-decoration-none text-muted me-3">Termos de Uso</a>
+        <a href="#" class="text-decoration-none text-muted">Contato</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/suporte_academico.js"></script>
+</body>
+</html>

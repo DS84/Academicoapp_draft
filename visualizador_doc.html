@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visualizador - Academicoapp</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- PDF.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+  </script>
+  <link rel="stylesheet" href="css/visualizador.css">
+</head>
+<body>
+  <!-- Formas flutuantes decorativas -->
+  <div class="floating-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="py-3">
+    <div class="container-fluid">
+      <div class="header-card rounded-3 p-3">
+        <div class="d-flex justify-content-between align-items-center flex-wrap">
+          <button onclick="goBack()" class="btn btn-back me-3">
+            <span class="material-icons">arrow_back</span>
+            Voltar
+          </button>
+          
+          <div class="document-info flex-grow-1 text-center">
+            <h5 class="mb-0 document-title">Cálculo Diferencial e Integral</h5>
+            <small class="text-muted">Documento Acadêmico</small>
+          </div>
+          
+          <div class="header-actions d-flex gap-2">
+            <button class="btn btn-action" onclick="toggleFullscreen()" title="Tela Cheia">
+              <span class="material-icons">fullscreen</span>
+            </button>
+            <button class="btn btn-action" onclick="printDocument()" title="Imprimir">
+              <span class="material-icons">print</span>
+            </button>
+            <button class="btn btn-download" onclick="downloadPDF()">
+              <span class="material-icons">download</span>
+              Baixar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container-fluid pt-4">
+    <div class="row g-4">
+      <!-- PDF Viewer -->
+      <div class="col-lg-8">
+        <div class="pdf-viewer-container">
+          <!-- Toolbar -->
+          <div class="pdf-toolbar">
+            <div class="toolbar-group">
+              <button class="btn btn-tool" onclick="zoomOut()" title="Diminuir Zoom">
+                <span class="material-icons">zoom_out</span>
+              </button>
+              <span class="zoom-indicator" id="zoom-level">120%</span>
+              <button class="btn btn-tool" onclick="zoomIn()" title="Aumentar Zoom">
+                <span class="material-icons">zoom_in</span>
+              </button>
+            </div>
+            
+            <div class="toolbar-group">
+              <button class="btn btn-tool" onclick="prevPage()" title="Página Anterior">
+                <span class="material-icons">navigate_before</span>
+              </button>
+              <div class="page-info">
+                Página 
+                <input type="number" id="page-input" min="1" onchange="goToPage(this.value)">
+                de <span id="page-count">1</span>
+              </div>
+              <button class="btn btn-tool" onclick="nextPage()" title="Próxima Página">
+                <span class="material-icons">navigate_next</span>
+              </button>
+            </div>
+            
+            <div class="toolbar-group">
+              <button class="btn btn-tool" onclick="fitToWidth()" title="Ajustar à Largura">
+                <span class="material-icons">fit_screen</span>
+              </button>
+              <button class="btn btn-tool" onclick="rotateDocument()" title="Girar Documento">
+                <span class="material-icons">rotate_right</span>
+              </button>
+            </div>
+          </div>
+          
+          <!-- PDF Container -->
+          <div class="pdf-container" id="pdf-container">
+            <div class="loading-spinner" id="loading-spinner">
+              <div class="spinner"></div>
+              <p>Carregando documento...</p>
+            </div>
+            <canvas id="pdf-canvas"></canvas>
+          </div>
+          
+          <!-- Navigation Controls -->
+          <div class="pdf-navigation">
+            <button class="btn btn-nav" onclick="prevPage()">
+              <span class="material-icons">chevron_left</span>
+              Anterior
+            </button>
+            <div class="page-indicator">
+              <span id="current-page">1</span> / <span id="total-pages">1</span>
+            </div>
+            <button class="btn btn-nav" onclick="nextPage()">
+              Próxima
+              <span class="material-icons">chevron_right</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="col-lg-4">
+        <!-- Document Info Card -->
+        <div class="info-card mb-4">
+          <div class="card-header">
+            <span class="material-icons">info</span>
+            Informações do Documento
+          </div>
+          <div class="card-body">
+            <div class="info-item">
+              <span class="info-label">Título:</span>
+              <span class="info-value">Cálculo Diferencial e Integral</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Categoria:</span>
+              <span class="info-value">📚 E-book</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Nível:</span>
+              <span class="info-value">🎓 Ensino Superior</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Páginas:</span>
+              <span class="info-value" id="document-pages">-</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Tamanho:</span>
+              <span class="info-value" id="document-size">Calculando...</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comments-card">
+          <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <span class="material-icons">chat_bubble</span>
+                Comentários
+              </div>
+              <button class="btn btn-add-comment" data-bs-toggle="modal" data-bs-target="#addNoteModal">
+                <span class="material-icons">add</span>
+                Adicionar
+              </button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="comments-container" id="comments-section">
+              <div class="comment-item">
+                <div class="comment-header">
+                  <div class="comment-author">
+                    <div class="author-avatar">N</div>
+                    <span class="author-name">Novais</span>
+                  </div>
+                  <span class="comment-time">Hoje, 10:30</span>
+                </div>
+                <div class="comment-content">
+                  Excelente explicação no Capítulo 3! Os exemplos práticos facilitam muito a compreensão.
+                </div>
+                <div class="comment-actions">
+                  <button class="btn-like">
+                    <span class="material-icons">thumb_up</span>
+                    <span class="like-count">3</span>
+                  </button>
+                  <button class="btn-reply">
+                    <span class="material-icons">reply</span>
+                    Responder
+                  </button>
+                </div>
+              </div>
+              
+              <div class="comment-item">
+                <div class="comment-header">
+                  <div class="comment-author">
+                    <div class="author-avatar">M</div>
+                    <span class="author-name">Maria</span>
+                  </div>
+                  <span class="comment-time">Ontem, 16:20</span>
+                </div>
+                <div class="comment-content">
+                  Como posso aplicar esses conceitos em problemas de física? Alguma sugestão de exercícios?
+                </div>
+                <div class="comment-actions">
+                  <button class="btn-like">
+                    <span class="material-icons">thumb_up</span>
+                    <span class="like-count">1</span>
+                  </button>
+                  <button class="btn-reply">
+                    <span class="material-icons">reply</span>
+                    Responder
+                  </button>
+                </div>
+              </div>
+              
+              <div class="comment-item">
+                <div class="comment-header">
+                  <div class="comment-author">
+                    <div class="author-avatar">P</div>
+                    <span class="author-name">Professor Silva</span>
+                  </div>
+                  <span class="comment-time">2 dias atrás</span>
+                </div>
+                <div class="comment-content">
+                  Recomendo começar com os exercícios do final do capítulo 2. São fundamentais para entender as derivadas.
+                </div>
+                <div class="comment-actions">
+                  <button class="btn-like active">
+                    <span class="material-icons">thumb_up</span>
+                    <span class="like-count">7</span>
+                  </button>
+                  <button class="btn-reply">
+                    <span class="material-icons">reply</span>
+                    Responder
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="load-more-comments">
+              <button class="btn btn-load-more">
+                <span class="material-icons">expand_more</span>
+                Carregar mais comentários
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal: Add Comment -->
+  <div class="modal fade" id="addNoteModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            <span class="material-icons me-2">edit_note</span>
+            Adicionar Comentário
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-floating">
+            <textarea class="form-control" id="noteText" placeholder="Escreva seu comentário..." style="height: 120px"></textarea>
+            <label for="noteText">Seu comentário</label>
+          </div>
+          <div class="mt-3">
+            <small class="text-muted">
+              <span class="material-icons" style="font-size: 14px; vertical-align: middle;">info</span>
+              Seu comentário será visível para todos os usuários
+            </small>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Cancelar
+          </button>
+          <button type="button" class="btn btn-primary" onclick="saveNote()">
+            <span class="material-icons me-1">send</span>
+            Publicar Comentário
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Toast -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="loadingToast" class="toast" role="alert">
+      <div class="toast-header">
+        <span class="material-icons text-primary me-2">download</span>
+        <strong class="me-auto">Download</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+      </div>
+      <div class="toast-body">
+        Preparando download do documento...
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/visualizador.js"></script>
+</body>
+</html>

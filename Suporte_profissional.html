@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Suporte Profissional – AcademicoApp</title>
+  <meta name="description" content="Suporte profissional: carreira, currículo, entrevistas e networking para estudantes e egressos">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <!-- Animate.css -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/suporte.css">
+</head>
+<body data-page="profissional">
+  <!-- Floating Decorative Shapes -->
+  <div class="floating-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top main-header">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="img/Academicoapp-logo3.png" alt="Logo AcademicoApp" height="40" loading="lazy">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html#about">Sobre</a></li>
+          
+          <!-- Serviços Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown">Serviços</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="suporte_academico.html">Suporte Acadêmico</a></li>
+              <li><a class="dropdown-item active" href="suporte_profissional.html">Suporte Profissional</a></li>
+            </ul>
+          </li>
+
+          <!-- Repositório -->
+          <li class="nav-item">
+            <a class="nav-link" href="Repositorio_1.html">Repositório</a>
+          </li>
+
+          <!-- Ranking -->
+          <li class="nav-item">
+            <a class="nav-link" href="ranking.html">Ranking</a>
+          </li>
+
+          <!-- Apps -->
+          <li class="nav-item">
+            <a class="nav-link" href="#">Apps & Soft</a>
+          </li>
+
+          <!-- Loja -->
+          <li class="nav-item">
+            <a class="nav-link" href="Loja_academica.html">Loja</a>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="index.html#team">Equipa</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contactos</a></li>
+          
+          <li class="nav-item ms-lg-2">
+            <a class="btn btn-orange" href="login_cadastro.html">Entrar</a>
+          </li>
+          
+          <li class="nav-item ms-lg-3">
+            <button id="themeToggle" class="btn btn-outline-orange" type="button" aria-pressed="false" title="Alternar tema">
+              <i class="fa-solid fa-moon"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-5" style="margin-top: 72px;">
+    <!-- Breadcrumb -->
+    <section class="bg-light py-3">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Início</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Suporte Profissional</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero-section hero-professional py-10">
+      <div class="container text-center">
+        <h1 class="display-4 fw-bold mb-4 animate__animated animate__fadeInDown">
+          Impulsione sua Carreira Profissional
+        </h1>
+        <p class="lead mb-6 text-muted animate__animated animate__fadeInUp animate__delay-1s">
+          Currículo, entrevistas, networking e mentoria de carreira com especialistas do mercado.
+        </p>
+        <div class="row justify-content-center mt-5">
+          <div class="col-md-8">
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+              <div class="text-center animate__animated animate__fadeInUp animate__delay-2s">
+                <div class="feature-icon mx-auto feature-blue">
+                  <i class="fas fa-file-alt"></i>
+                </div>
+                <h6>Revisão de Currículo</h6>
+              </div>
+              <div class="text-center animate__animated animate__fadeInUp animate__delay-2s">
+                <div class="feature-icon mx-auto feature-green">
+                  <i class="fas fa-comments"></i>
+                </div>
+                <h6>Simulação de Entrevista</h6>
+              </div>
+              <div class="text-center animate__animated animate__fadeInUp animate__delay-2s">
+                <div class="feature-icon mx-auto feature-purple">
+                  <i class="fas fa-handshake"></i>
+                </div>
+                <h6>Mentoria de Carreira</h6>
+              </div>
+              <div class="text-center animate__animated animate__fadeInUp animate__delay-2s">
+                <div class="feature-icon mx-auto feature-orange">
+                  <i class="fas fa-network-wired"></i>
+                </div>
+                <h6>Networking Profissional</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking-section py-10">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-6 order-2 order-lg-1">
+            <div class="card shadow-lg border-0 animate__animated animate__fadeInLeft">
+              <div class="card-body p-5">
+                <h2 class="mb-4"><i class="fas fa-briefcase text-primary me-2"></i>Solicite seu Suporte</h2>
+                <form id="careerForm" class="needs-validation" novalidate>
+                  <div class="mb-4">
+                    <label class="form-label" for="goal">
+                      <i class="fas fa-bullseye me-2"></i>Objetivo Profissional
+                    </label>
+                    <select id="goal" class="form-select" required>
+                      <option value="">Selecione seu objetivo</option>
+                      <option value="curriculo">Melhorar meu currículo</option>
+                      <option value="entrevista">Preparar para entrevista</option>
+                      <option value="mentoria">Mentoria de carreira</option>
+                      <option value="networking">Expandir meu networking</option>
+                      <option value="transicao">Transição de carreira</option>
+                      <option value="linkedin">Otimizar perfil LinkedIn</option>
+                      <option value="portfolio">Criar portfólio profissional</option>
+                    </select>
+                    <div class="invalid-feedback">Por favor, selecione seu objetivo.</div>
+                  </div>
+
+                  <div class="mb-4">
+                    <label class="form-label" for="experience">
+                      <i class="fas fa-user-tie me-2"></i>Nível de Experiência
+                    </label>
+                    <select id="experience" class="form-select" required>
+                      <option value="">Selecione seu nível</option>
+                      <option value="estudante">Estudante (sem experiência)</option>
+                      <option value="recem_formado">Recém-formado (0-1 ano)</option>
+                      <option value="junior">Júnior (1-3 anos)</option>
+                      <option value="pleno">Pleno (3-5 anos)</option>
+                      <option value="senior">Sênior (5+ anos)</option>
+                      <option value="gestor">Gestor/Líder</option>
+                    </select>
+                    <div class="invalid-feedback">Por favor, selecione seu nível de experiência.</div>
+                  </div>
+
+                  <div class="mb-4">
+                    <label class="form-label" for="area">
+                      <i class="fas fa-suitcase me-2"></i>Área de Interesse
+                    </label>
+                    <input type="text" id="area" class="form-control" placeholder="Ex: Tecnologia, Marketing, Saúde, Finanças" required>
+                    <div class="invalid-feedback">Por favor, informe sua área de interesse.</div>
+                  </div>
+
+                  <div class="mb-4">
+                    <label class="form-label" for="urgencia">
+                      <i class="fas fa-hourglass-half me-2"></i>Urgência do Suporte
+                    </label>
+                    <select id="urgencia" class="form-select" required>
+                      <option value="">Selecione a urgência</option>
+                      <option value="imediato">Imediato (preciso esta semana)</option>
+                      <option value="breve">Breve (próximas 2 semanas)</option>
+                      <option value="planejado">Planejado (próximo mês)</option>
+                      <option value="flexivel">Flexível (sem pressa)</option>
+                    </select>
+                    <div class="invalid-feedback">Por favor, informe a urgência.</div>
+                  </div>
+
+                  <div class="mb-4">
+                    <label class="form-label" for="detalhes">
+                      <i class="fas fa-comment-alt me-2"></i>Detalhes adicionais (opcional)
+                    </label>
+                    <textarea id="detalhes" class="form-control" rows="3" placeholder="Ex: Tenho uma entrevista marcada para próxima semana..."></textarea>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary btn-lg w-100">
+                    <i class="fas fa-paper-plane me-2"></i>Solicitar Suporte
+                  </button>
+                </form>
+
+                <div id="successMessage" class="alert alert-success mt-4 success-alert d-none">
+                  <i class="fas fa-check-circle me-2"></i>
+                  Solicitação enviada! Um especialista entrará em contato em até 24h.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 order-1 order-lg-2">
+            <div class="card shadow-lg border-0 animate__animated animate__fadeInRight">
+              <div class="card-body p-5">
+                <h2 class="mb-4"><i class="fas fa-award text-warning me-2"></i>O que Oferecemos</h2>
+                <ul class="list-unstyled mb-5">
+                  <li class="mb-3 d-flex">
+                    <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                    <div>
+                      <strong>Revisão de currículo com IA + especialista</strong>
+                      <p class="text-muted mb-0">Otimizado para ATS e recrutadores humanos.</p>
+                    </div>
+                  </li>
+                  <li class="mb-3 d-flex">
+                    <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                    <div>
+                      <strong>Simulação de entrevista com feedback</strong>
+                      <p class="text-muted mb-0">Gravamos e analisamos sua performance.</p>
+                    </div>
+                  </li>
+                  <li class="mb-3 d-flex">
+                    <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                    <div>
+                      <strong>Mentoria com profissionais do mercado</strong>
+                      <p class="text-muted mb-0">Conexão com líderes de grandes empresas.</p>
+                    </div>
+                  </li>
+                  <li class="mb-3 d-flex">
+                    <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                    <div>
+                      <strong>Acesso a eventos de networking exclusivos</strong>
+                      <p class="text-muted mb-0">Feiras de emprego, webinars e meetups.</p>
+                    </div>
+                  </li>
+                  <li class="mb-3 d-flex">
+                    <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                    <div>
+                      <strong>Banco de vagas exclusivo</strong>
+                      <p class="text-muted mb-0">Acesso a oportunidades não divulgadas publicamente.</p>
+                    </div>
+                  </li>
+                </ul>
+
+                <div class="alert alert-info">
+                  <i class="fas fa-graduation-cap me-2"></i>
+                  <strong>Primeiro serviço gratuito para estudantes ativos!</strong>
+                </div>
+
+                <div class="price-info mt-4 p-4 bg-light rounded">
+                  <h5 class="mb-3">Investimento por serviço:</h5>
+                  <ul class="list-unstyled mb-0">
+                    <li><i class="fas fa-tag me-2 text-primary"></i>Revisão de CV: <strong>10.000 Kz</strong></li>
+                    <li><i class="fas fa-tag me-2 text-primary"></i>Simulação de entrevista: <strong>18.000 Kz</strong></li>
+                    <li><i class="fas fa-tag me-2 text-primary"></i>Mentoria (1h): <strong>20.000 Kz</strong></li>
+                    <li><i class="fas fa-tag me-2 text-primary"></i>Pacote completo: <strong>40.000 Kz</strong></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section py-10 bg-primary text-white">
+      <div class="container text-center">
+        <h2 class="display-6 fw-bold mb-5">Impacto do Nosso Suporte</h2>
+        <div class="row g-4">
+          <div class="col-md-3">
+            <div class="stat-item">
+              <div class="stat-number" data-target="85">0</div>
+              <div class="stat-suffix">%</div>
+              <p class="mb-0">Taxa de sucesso em entrevistas</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="stat-item">
+              <div class="stat-number" data-target="2400">0</div>
+              <div class="stat-suffix">+</div>
+              <p class="mb-0">Currículos revisados</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="stat-item">
+              <div class="stat-number" data-target="94">0</div>
+              <div class="stat-suffix">%</div>
+              <p class="mb-0">Satisfação dos usuários</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="stat-item">
+              <div class="stat-number" data-target="1800">0</div>
+              <div class="stat-suffix">+</div>
+              <p class="mb-0">Vagas conectadas</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section py-10 bg-light">
+      <div class="container">
+        <div class="text-center mb-8">
+          <h2 class="display-6 fw-bold">Depoimentos de Profissionais</h2>
+          <p class="text-muted">Veja como ajudamos na transição de carreira</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="testimonial-card card h-100 shadow-sm animate__animated animate__fadeInUp animate__delay-1s">
+              <div class="card-body">
+                <div class="text-warning mb-3">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <p class="card-text">"A simulação de entrevista me preparou para perguntas difíceis. Consegui a vaga na Google!"</p>
+                <div class="d-flex align-items-center mt-4">
+                  <div class="avatar-circle avatar-blue">AS</div>
+                  <div>
+                    <strong>Ana Silva</strong>
+                    <div class="text-muted small">Desenvolvedora, ex-estudante UAN</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="testimonial-card card h-100 shadow-sm animate__animated animate__fadeInUp animate__delay-2s">
+              <div class="card-body">
+                <div class="text-warning mb-3">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p class="card-text">"Revisaram meu currículo e em 3 dias recebi 5 convites para entrevista. Incrível!"</p>
+                <div class="d-flex align-items-center mt-4">
+                  <div class="avatar-circle avatar-red">RM</div>
+                  <div>
+                    <strong>Rui Manuel</strong>
+                    <div class="text-muted small">Eng. Gestão, UCAN</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="testimonial-card card h-100 shadow-sm animate__animated animate__fadeInUp animate__delay-3s">
+              <div class="card-body">
+                <div class="text-warning mb-3">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <p class="card-text">"A mentoria me ajudou a mudar de área. Hoje trabalho em UX com 40% mais salário."</p>
+                <div class="d-flex align-items-center mt-4">
+                  <div class="avatar-circle avatar-green">LF</div>
+                  <div>
+                    <strong>Lúcia Ferreira</strong>
+                    <div class="text-muted small">Designer UX, ex-direito</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section py-10">
+      <div class="container">
+        <div class="text-center mb-8">
+          <h2 class="display-6 fw-bold">Perguntas Frequentes</h2>
+          <p class="text-muted">Tire suas dúvidas sobre o suporte profissional</p>
+        </div>
+        <div class="accordion custom-accordion" id="faqAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                <i class="fas fa-question-circle me-2 text-primary"></i>
+                Posso usar o suporte mesmo após me formar?
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Sim! O suporte profissional está disponível por até 5 anos após a formatura. Oferecemos também planos especiais para alumni.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                <i class="fas fa-question-circle me-2 text-primary"></i>
+                Como funciona a simulação de entrevista?
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Você participa de uma entrevista simulada via videochamada com um recrutador real. Após isso, recebe gravação, feedback escrito detalhado e sugestões de melhoria personalizadas.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                <i class="fas fa-question-circle me-2 text-primary"></i>
+                Vocês têm parceria com empresas?
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Sim! Temos parcerias com mais de 120 empresas em Angola e no exterior para encaminhamento de talentos, incluindo multinacionais, startups e empresas locais.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                <i class="fas fa-question-circle me-2 text-primary"></i>
+                O que é o ATS e como otimizam meu currículo?
+              </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                ATS (Applicant Tracking System) são sistemas usados por empresas para filtrar currículos. Otimizamos seu CV com palavras-chave corretas, formatação adequada e estrutura que passa pelos filtros automáticos.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer text-center py-5 mt-5">
+    <div class="container">
+      <p class="mb-0">© 2025 Academicoapp. Todos os direitos reservados.</p>
+      <div class="footer-links mt-2">
+        <a href="#" class="text-decoration-none text-muted me-3">Política de Privacidade</a>
+        <a href="#" class="text-decoration-none text-muted me-3">Termos de Uso</a>
+        <a href="#" class="text-decoration-none text-muted">Contato</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/suporte_profissional.js"></script>
+</body>
+</html>
